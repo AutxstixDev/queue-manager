@@ -2,9 +2,9 @@
 
 A full-stack queue management application. A manager logs in, creates queues, adds people (each gets a token), reorders them, assigns the front token for service, cancels tokens, and views analytics on wait times and queue length.
 
-**Live demo:** <your-render-url>
+**Live demo:** https://queueflow-uqvd.onrender.com
 **Demo login:** `demo@example.com` / `demo1234`
-**Source:** <your-github-repo-url>
+**Source:** https://github.com/AutxstixDev/queue-manager
 
 > Hosted on Render's free tier, so the first load after inactivity can take up to a minute.
 
@@ -66,7 +66,7 @@ JWT_SECRET=<a long random string>
 | PATCH | `/api/tokens/:id/move` | Move a token up or down |
 | PATCH | `/api/tokens/:id/cancel` | Cancel a waiting token |
 
-All routes except auth require a `Authorization: Bearer <token>` header.
+All routes except auth require an `Authorization: Bearer <token>` header.
 
 ## Design decisions
 - **Atomic token numbers:** an `$inc` on the queue's counter means two simultaneous adds never get the same number.
