@@ -1,10 +1,14 @@
 require('dotenv').config()
+const dns = require('dns')
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const Manager = require('./models/Manager')
 const Queue = require('./models/Queue')
 const Token = require('./models/Token')
 const Event = require('./models/Event')
+
+// some networks block SRV lookups; use public DNS for Node's resolver
+dns.setServers(['8.8.8.8', '1.1.1.1'])
 
 const rand = (a, b) => Math.floor(Math.random() * (b - a + 1)) + a
 const MIN = 60000
